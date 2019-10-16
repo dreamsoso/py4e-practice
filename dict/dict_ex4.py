@@ -13,7 +13,8 @@ for line in fhand:
 for key in d:
     if maxinum is None or d[key] > maxinum:
         maxinum = d[key]
+        owner = key
 
 print(d)
 print(list(d.values()))
-print("max=%d" % maxinum)
+print("key=%s max=%d" % (owner, maxinum))
