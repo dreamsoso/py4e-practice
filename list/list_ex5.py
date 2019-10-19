@@ -1,21 +1,15 @@
-fhand = open('romeo.txt')
-t = list()
-count = 0
+fname = input("Enter a file name:")
+
+try:
+    fhand = open(fname)
+except:
+    print("%s is not exists!\n" % fname)
+count=0
 for line in fhand:
-    words = line.split()
-    #print('Debug:', words)
-    for word in words:
-	    if word in t: 
-	    	continue
-	    else:
-	    	t.append(word)
-t.sort()
-print(t)
+    if line.startswith('From') and not line.startswith('From:'):
+        words = line.split();
+        count+=1
+        if len(words) > 2:
+            print(words[1])
 
-ans = ['Arise', 'But', 'It', 'Juliet', 'Who', 'already',
-'and', 'breaks', 'east', 'envious', 'fair', 'grief',
-'is', 'kill', 'light', 'moon', 'pale', 'sick', 'soft',
-'sun', 'the', 'through', 'what', 'window',
-'with', 'yonder']
-
-if t == ans: print("correct!!!!!!\n")
+print("There were %d lines in the file with From as the first word" % count)
