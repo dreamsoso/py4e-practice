@@ -15,11 +15,13 @@ while True:
     if (count+len(s)) <= threshold:
         if count == 0:
             output=s
+            count=count+len(s)
         else:
             count+=len(s)
-            output+=s
+            output=output+s
     else:
-        output+=s[:(threshold-count)]
-        count=threshold-count
+        output=output+s[:(threshold-count)]
+        count=threshold
+        break
 print(output)
 mysock.close()
